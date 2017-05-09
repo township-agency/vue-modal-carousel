@@ -77,7 +77,7 @@
   }
 
   .VueCarousel-navigation-button {
-    position: absolute;
+    position: fixed;
     top: 50%;
     box-sizing: border-box;
     color: #000;

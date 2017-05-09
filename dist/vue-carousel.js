@@ -1,5 +1,5 @@
 /*!
- * vue-carousel v0.6.4
+ * vue-carousel v0.0.1
  * (c) 2017 todd.beauchamp@ssense.com
  * https://github.com/ssense/vue-carousel#readme
  */
@@ -93,7 +93,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	
 	/* styles */
-	__webpack_require__(33)
+	__webpack_require__(2)
 
 	var Component = __webpack_require__(6)(
 	  /* script */
@@ -126,8 +126,46 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 2 */,
-/* 3 */,
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(3);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(5)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-74f55575&scoped=true!../node_modules/sass-loader/lib/loader.js!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Carousel.vue", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-74f55575&scoped=true!../node_modules/sass-loader/lib/loader.js!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Carousel.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(4)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n.VueCarousel[data-v-74f55575] {\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-wrapper[data-v-74f55575] {\n  width: 100%;\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-inner[data-v-74f55575] {\n  display: flex;\n  flex-direction: row;\n  backface-visibility: hidden;\n}\n.VueCarousel-close[data-v-74f55575] {\n  display: none;\n  position: fixed;\n  top: 0;\n  right: 0;\n  z-index: 10000000000000000000000;\n}\nbody.modal-active[data-v-74f55575] {\n  overflow: hidden;\n}\nbody.modal-active .VueCarousel-expand[data-v-74f55575] {\n    display: none;\n}\nbody.modal-active .VueCarousel.is-not-active[data-v-74f55575] {\n    display: none;\n}\nbody.modal-active .VueCarousel.is-active[data-v-74f55575] {\n    height: 100vh;\n    width: 100vw;\n    z-index: 10000000000000000000000;\n    position: fixed;\n    top: 0;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-wrapper[data-v-74f55575] {\n      height: 100vh;\n      width: 100vw;\n      z-index: 10000000000000000000000;\n      position: fixed;\n      top: 0;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-close[data-v-74f55575] {\n      display: block;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-pagination[data-v-74f55575] {\n      position: absolute;\n      z-index: 10000000000000000000000;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-slide[data-v-74f55575] {\n      position: relative;\n      z-index: 10000000000000000000000;\n      top: 0;\n      overflow-y: scroll;\n      width: 100vw;\n      height: 100vh;\n}\n", ""]);
+
+	// exports
+
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
@@ -1019,7 +1057,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.VueCarousel-navigation[data-v-7fed18e9] {\n  position: absolute;\n  z-index: 10000000000000000000000;\n  width: 100%;\n  top: 50%;\n}\n.VueCarousel-navigation-button[data-v-7fed18e9] {\n  position: absolute;\n  top: 50%;\n  box-sizing: border-box;\n  color: #000;\n  text-decoration: none;\n}\n.VueCarousel-navigation-next[data-v-7fed18e9] {\n  transform: translateY(-50%) translateX(100%);\n}\n.VueCarousel-navigation-prev[data-v-7fed18e9] {\n  transform: translateY(-50%) translateX(-100%);\n}\n.VueCarousel-navigation--disabled[data-v-7fed18e9] {\n  opacity: 0;\n  cursor: default;\n}\n", ""]);
+	exports.push([module.id, "\n.VueCarousel-navigation[data-v-7fed18e9] {\n  position: absolute;\n  z-index: 10000000000000000000000;\n  width: 100%;\n  top: 50%;\n}\n.VueCarousel-navigation-button[data-v-7fed18e9] {\n  position: fixed;\n  top: 50%;\n  box-sizing: border-box;\n  color: #000;\n  text-decoration: none;\n}\n.VueCarousel-navigation-next[data-v-7fed18e9] {\n  transform: translateY(-50%) translateX(100%);\n}\n.VueCarousel-navigation-prev[data-v-7fed18e9] {\n  transform: translateY(-50%) translateX(-100%);\n}\n.VueCarousel-navigation--disabled[data-v-7fed18e9] {\n  opacity: 0;\n  cursor: default;\n}\n", ""]);
 
 	// exports
 
@@ -1526,7 +1564,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	
 	/* styles */
-	__webpack_require__(35)
+	__webpack_require__(23)
 
 	var Component = __webpack_require__(6)(
 	  /* script */
@@ -1559,8 +1597,46 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 23 */,
-/* 24 */,
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(24);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(5)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f8171128&scoped=true!../node_modules/sass-loader/lib/loader.js!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Slide.vue", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f8171128&scoped=true!../node_modules/sass-loader/lib/loader.js!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Slide.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(4)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n.VueCarousel-slide[data-v-f8171128] {\n  flex-basis: inherit;\n  flex-grow: 0;\n  flex-shrink: 0;\n  user-select: none;\n  position: relative;\n  transition: .3s ease all;\n}\n.VueCarousel-expand[data-v-f8171128] {\n  position: absolute;\n  right: 1rem;\n  bottom: 1rem;\n  z-index: 10000000000000000000000;\n}\n", ""]);
+
+	// exports
+
+
+/***/ }),
 /* 25 */
 /***/ (function(module, exports) {
 
@@ -1757,86 +1833,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     require("vue-hot-reload-api").rerender("data-v-74f55575", module.exports)
 	  }
 	}
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(34);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-74f55575&scoped=true!../node_modules/sass-loader/lib/loader.js!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Carousel.vue", function() {
-				var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-74f55575&scoped=true!../node_modules/sass-loader/lib/loader.js!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Carousel.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(4)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\n.VueCarousel[data-v-74f55575] {\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-wrapper[data-v-74f55575] {\n  width: 100%;\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-inner[data-v-74f55575] {\n  display: flex;\n  flex-direction: row;\n  backface-visibility: hidden;\n}\n.VueCarousel-close[data-v-74f55575] {\n  display: none;\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 10000000000000000000000;\n}\nbody.modal-active[data-v-74f55575] {\n  overflow: hidden;\n}\nbody.modal-active .VueCarousel-expand[data-v-74f55575] {\n    display: none;\n}\nbody.modal-active .VueCarousel.is-not-active[data-v-74f55575] {\n    display: none;\n}\nbody.modal-active .VueCarousel.is-active[data-v-74f55575] {\n    height: 100vh;\n    width: 100vw;\n    z-index: 10000000000000000000000;\n    position: fixed;\n    top: 0;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-wrapper[data-v-74f55575] {\n      height: 100vh;\n      width: 100vw;\n      z-index: 10000000000000000000000;\n      position: fixed;\n      top: 0;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-close[data-v-74f55575] {\n      display: block;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-pagination[data-v-74f55575] {\n      position: absolute;\n      z-index: 10000000000000000000000;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-slide[data-v-74f55575] {\n      position: relative;\n      z-index: 10000000000000000000000;\n      top: 0;\n      overflow-y: scroll;\n      width: 100vw;\n      height: 100vh;\n}\n", ""]);
-
-	// exports
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(36);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f8171128&scoped=true!../node_modules/sass-loader/lib/loader.js!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Slide.vue", function() {
-				var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f8171128&scoped=true!../node_modules/sass-loader/lib/loader.js!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Slide.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(4)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "\n.VueCarousel-slide[data-v-f8171128] {\n  flex-basis: inherit;\n  flex-grow: 0;\n  flex-shrink: 0;\n  user-select: none;\n  position: relative;\n  transition: .3s ease all;\n}\n.VueCarousel-expand[data-v-f8171128] {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  z-index: 10000000000000000000000;\n}\n", ""]);
-
-	// exports
-
 
 /***/ })
 /******/ ])
