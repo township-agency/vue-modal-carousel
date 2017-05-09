@@ -77,7 +77,7 @@
   }
 
   .VueCarousel-navigation-button {
-    position: fixed;
+    position: absolute;
     top: 50%;
     box-sizing: border-box;
     color: #000;
@@ -96,4 +96,11 @@
     opacity: 0;
     cursor: default;
   }
+  
+  .is-active {
+    .VueCarousel-navigation-button {
+      position: fixed;
+    }
+  }
+  
 </style>
