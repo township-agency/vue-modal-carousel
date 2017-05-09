@@ -533,7 +533,7 @@
   
   .VueCarousel-close {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     z-index: $z-index + 3;
