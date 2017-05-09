@@ -457,6 +457,16 @@
           return bodyClass.add("modal-active")
         }
       },
+      closeModal() {
+        const bodyClass = document.body.classList
+        if (bodyClass.contains('modal-active')) {
+          if (this.forceModal) {
+            this.currentPage = 0
+          }
+          this.modalEnabled = false
+          return bodyClass.remove("modal-active")
+        }
+      },
       modalToggle() {
         const bodyClass = document.body.classList
         if (bodyClass.contains("modal-active")) {
@@ -473,7 +483,7 @@
         const vm = this
         window.addEventListener("keyup", (e) => {
           if (e.key === "Escape") {
-            return vm.modalToggle()
+            return vm.closeModal()
           }
           return false
         })
