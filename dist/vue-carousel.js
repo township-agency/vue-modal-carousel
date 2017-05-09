@@ -838,6 +838,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return bodyClass.add("modal-active");
 	      }
 	    },
+	    closeModal: function closeModal() {
+	      var bodyClass = document.body.classList;
+	      if (bodyClass.contains('modal-active')) {
+	        if (this.forceModal) {
+	          this.currentPage = 0;
+	        }
+	        this.modalEnabled = false;
+	        return bodyClass.remove("modal-active");
+	      }
+	    },
 	    modalToggle: function modalToggle() {
 	      var bodyClass = document.body.classList;
 	      if (bodyClass.contains("modal-active")) {
@@ -854,7 +864,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var vm = this;
 	      window.addEventListener("keyup", function (e) {
 	        if (e.key === "Escape") {
-	          return vm.modalToggle();
+	          return vm.closeModal();
 	        }
 	        return false;
 	      });
