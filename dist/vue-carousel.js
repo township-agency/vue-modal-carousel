@@ -1067,7 +1067,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.VueCarousel-navigation[data-v-7fed18e9] {\n  position: absolute;\n  z-index: 10000000000000000000000;\n  width: 100%;\n  top: 50%;\n}\n.VueCarousel-navigation-button[data-v-7fed18e9] {\n  position: absolute;\n  top: 50%;\n  box-sizing: border-box;\n  color: #000;\n  text-decoration: none;\n}\n.VueCarousel-navigation-next[data-v-7fed18e9] {\n  transform: translateY(-50%) translateX(100%);\n}\n.VueCarousel-navigation-prev[data-v-7fed18e9] {\n  transform: translateY(-50%) translateX(-100%);\n}\n.VueCarousel-navigation--disabled[data-v-7fed18e9] {\n  opacity: 0;\n  cursor: default;\n}\n.is-active .VueCarousel-navigation-button[data-v-7fed18e9] {\n  position: fixed;\n}\n", ""]);
+	exports.push([module.id, "\n.VueCarousel-navigation[data-v-7fed18e9] {\n  position: absolute;\n  z-index: 10000000000000000000000;\n  width: 100%;\n  top: 50%;\n}\n.VueCarousel-navigation-button[data-v-7fed18e9] {\n  position: absolute;\n  top: 50%;\n  box-sizing: border-box;\n  color: #000;\n  text-decoration: none;\n}\n.VueCarousel-navigation-next[data-v-7fed18e9] {\n  transform: translateY(-50%) translateX(100%);\n}\n.VueCarousel-navigation-prev[data-v-7fed18e9] {\n  transform: translateY(-50%) translateX(-100%);\n}\n.VueCarousel-navigation--disabled[data-v-7fed18e9] {\n  opacity: 0;\n  cursor: default;\n}\n.is-active .VueCarousel-navigation-button[data-v-7fed18e9] {\n  position: fixed;\n}\n@media (max-width: 699px) {\n.is-not-active .VueCarousel-navigation-next[data-v-7fed18e9],\n  .is-not-active .VueCarousel-navigation-prev[data-v-7fed18e9] {\n    transform: translateY(-80%) translateX(100%);\n}\n}\n", ""]);
 
 	// exports
 

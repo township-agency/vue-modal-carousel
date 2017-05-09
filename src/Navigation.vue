@@ -103,4 +103,13 @@
     }
   }
   
+  @media (max-width: 699px) {
+    .is-not-active {
+      .VueCarousel-navigation-next,
+      .VueCarousel-navigation-prev {
+        transform: translateY(-80%) translateX(100%);
+      }  
+    }
+  }
+  
 </style>
