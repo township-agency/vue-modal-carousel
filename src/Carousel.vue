@@ -254,13 +254,17 @@
        */
       currentOffset() {
         const page = this.currentPage
-        const width = this.slideWidth
         const dragged = this.dragOffset
+        let width = this.slideWidth
+        
+        if(this.modalEnabled) {
+          width = this.browserWidth
+        }
 
         // The offset distance depends on whether the scrollPerPage option is active.
         // If this option is active, the offset will be determined per page rather than per item.
         const offset = (this.scrollPerPage) ? (page * width * this.currentPerPage) : (page * width)
-
+        
         return (offset + dragged) * -1
       },
       isHidden() {
@@ -273,6 +277,10 @@
       pageCount() {
         const slideCount = this.slideCount
         const perPage = this.currentPerPage
+        
+        if (this.modalEnabled) {
+          return slideCount
+        }
 
         if (this.scrollPerPage) {
           const pages = Math.ceil(slideCount / perPage)
@@ -295,6 +303,10 @@
       slideWidth() {
         const width = this.carouselWidth
         const perPage = this.currentPerPage
+        
+        if(this.modalEnabled) {
+          return this.browserWidth
+        }
 
         return width / perPage
       },
@@ -470,14 +482,9 @@
       modalToggle() {
         const bodyClass = document.body.classList
         if (bodyClass.contains("modal-active")) {
-          if (this.forceModal) {
-            this.currentPage = 0
-          }
-          this.modalEnabled = false
-          return bodyClass.remove("modal-active")
+          return this.closeModal()
         }
-        this.modalEnabled = true
-        return bodyClass.add("modal-active")
+        return this.openModal()
       },
       addHotKeys() {
         const vm = this
