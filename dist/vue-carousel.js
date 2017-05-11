@@ -706,10 +706,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    currentOffset: function currentOffset() {
 	      var page = this.currentPage;
-	      var width = this.slideWidth;
 	      var dragged = this.dragOffset;
+	      var width = this.slideWidth;
+
+	      if (this.modalEnabled) {
+	        width = this.browserWidth;
+	      }
 
 	      var offset = this.scrollPerPage ? page * width * this.currentPerPage : page * width;
+
+	      console.log(offset);
 
 	      return (offset + dragged) * -1;
 	    },
@@ -719,6 +725,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    pageCount: function pageCount() {
 	      var slideCount = this.slideCount;
 	      var perPage = this.currentPerPage;
+
+	      if (this.modalEnabled) {
+	        return slideCount;
+	      }
 
 	      if (this.scrollPerPage) {
 	        var pages = Math.ceil(slideCount / perPage);
@@ -730,6 +740,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    slideWidth: function slideWidth() {
 	      var width = this.carouselWidth;
 	      var perPage = this.currentPerPage;
+
+	      if (this.modalEnabled) {
+	        return this.browserWidth;
+	      }
 
 	      return width / perPage;
 	    },
@@ -851,14 +865,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    modalToggle: function modalToggle() {
 	      var bodyClass = document.body.classList;
 	      if (bodyClass.contains("modal-active")) {
-	        if (this.forceModal) {
-	          this.currentPage = 0;
-	        }
-	        this.modalEnabled = false;
-	        return bodyClass.remove("modal-active");
+	        return this.closeModal();
 	      }
-	      this.modalEnabled = true;
-	      return bodyClass.add("modal-active");
+	      return this.openModal();
 	    },
 	    addHotKeys: function addHotKeys() {
 	      var vm = this;
