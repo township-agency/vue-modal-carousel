@@ -1,5 +1,5 @@
 {
-  "name": "vue-modal-carousel",
+  "name": "@motel/vue-modal-carousel",
   "version": "0.0.1",
   "description": "A flexible, responsive, touch-friendly carousel for Vue.js",
   "main": "dist/vue-carousel.js",
@@ -9,7 +9,7 @@
     "dev": "vue-play start --standalone",
     "dev:build": "vue-play build",
     "dev:live": "webpack --config config/webpack.base.conf.js --watch",
-    "docs:build": "npm run build && rm -rf ./docs/public && mkdir ./docs/public/ && cd ./docs/public/ && git init && git remote add origin git@github.com:SSENSE/vue-carousel.git && git fetch && git checkout -f gh-pages && cd .. && npm install && ./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo generate",
+    "docs:build": "npm run build && rm -rf ./docs/public && mkdir ./docs/public/ && cd ./docs/public/ && git init && git remote add origin git@github.com:motelis/vue-carousel.git && git fetch && git checkout -f gh-pages && cd .. && npm install && ./node_modules/.bin/hexo clean && ./node_modules/.bin/hexo generate",
     "lint": "eslint 'src/**/?(*.js|*.vue)' || exit 1",
     "test": "npm run test:client",
     "test:client": "jest --config tests/client.jest.json --forceExit",
@@ -19,20 +19,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/SSENSE/vue-carousel.git"
+    "url": "git+ssh://git@github.com/motelis/vue-carousel.git"
   },
   "keywords": [
     "Vue",
     "carousel",
     "slider",
-    "responsive"
+    "responsive",
+    "modal"
   ],
-  "author": "todd.beauchamp@ssense.com",
+  "author": "thomas@motel.is",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ssense/vue-carousel/issues"
+    "url": "https://github.com/motelis/vue-carousel/issues"
   },
-  "homepage": "https://github.com/ssense/vue-carousel#readme",
+  "homepage": "https://github.com/motelis/vue-carousel#readme",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
