@@ -1826,14 +1826,44 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: {
 	      'open': _vm.isOpen
 	    }
-	  }, [_vm._t("default")], 2), _vm._v(" "), _c('div', {
-	    staticClass: "VueCarousel-icon",
-	    class: [{
-	      'open': _vm.isOpen
-	    }, {
-	      'closed': !_vm.isOpen
-	    }]
-	  })])
+	  }, [_vm._t("default")], 2), _vm._v(" "), (_vm.isOpen) ? _c('div', {
+	    staticClass: "VueCarousel-icon open"
+	  }, [_c('svg', {
+	    attrs: {
+	      "version": "1.1",
+	      "xmlns": "http://www.w3.org/2000/svg",
+	      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+	      "x": "0px",
+	      "y": "0px",
+	      "viewBox": "0 0 10.0005 1.098",
+	      "enable-background": "new 0 0 10.0005 1.098",
+	      "xml:space": "preserve"
+	    }
+	  }, [_c('rect', {
+	    attrs: {
+	      "fill": "#FFF",
+	      "width": "10.0005",
+	      "height": "1.098"
+	    }
+	  })])]) : _c('div', {
+	    staticClass: "VueCarousel-icon closed"
+	  }, [_c('svg', {
+	    attrs: {
+	      "version": "1.1",
+	      "xmlns": "http://www.w3.org/2000/svg",
+	      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+	      "x": "0px",
+	      "y": "0px",
+	      "viewBox": "0 0 10.0005 10",
+	      "enable-background": "new 0 0 10.0005 10",
+	      "xml:space": "preserve"
+	    }
+	  }, [_c('polygon', {
+	    attrs: {
+	      "fill": "#FFF",
+	      "points": "10.0005,4.451 5.5485,4.451 5.5485,0 4.451,0 4.451,4.451 0,4.451 0,5.549 4.451,5.549 4.451,10 5.5485,10 5.5485,5.549 10.0005,5.549 "
+	    }
+	  })])])])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
