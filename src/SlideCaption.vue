@@ -1,12 +1,10 @@
 <template>
-  <div class="VueCarousel-caption">
-    <aside class="slide-caption" @click="handleClick">
-      <div class="truncate" v-bind:class="{ 'open': isOpen }">
-        <slot></slot>
-      </div>
-      <div class="slide-icon" v-bind:class="[{ 'open': isOpen }, { 'closed': !isOpen }]"></div>
-    </aside>
-  </div>
+  <aside class="VueCarousel-caption" @click="handleClick">
+    <div class="VueCarousel-truncate" v-bind:class="{ 'open': isOpen }">
+      <slot></slot>
+    </div>
+    <div class="VueCarousel-icon" v-bind:class="[{ 'open': isOpen }, { 'closed': !isOpen }]"></div>
+  </aside>
 </template>
 
 <script>
