@@ -160,7 +160,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.VueCarousel[data-v-74f55575] {\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-wrapper[data-v-74f55575] {\n  width: 100%;\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-inner[data-v-74f55575] {\n  display: flex;\n  flex-direction: row;\n  backface-visibility: hidden;\n}\n.VueCarousel-close[data-v-74f55575] {\n  display: none;\n  position: fixed;\n  top: 0;\n  right: 0;\n  z-index: 10000000000000000000000;\n}\nbody.modal-active[data-v-74f55575] {\n  overflow: hidden;\n}\nbody.modal-active .VueCarousel-expand[data-v-74f55575] {\n    display: none;\n}\nbody.modal-active .VueCarousel.is-not-active[data-v-74f55575] {\n    display: none;\n}\nbody.modal-active .VueCarousel.is-active[data-v-74f55575] {\n    height: 100vh;\n    width: 100vw;\n    z-index: 10000000000000000000000;\n    position: fixed;\n    top: 0;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-wrapper[data-v-74f55575] {\n      height: 100vh;\n      width: 100vw;\n      z-index: 10000000000000000000000;\n      position: fixed;\n      top: 0;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-close[data-v-74f55575] {\n      display: block;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-pagination[data-v-74f55575] {\n      position: absolute;\n      z-index: 10000000000000000000000;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-slide[data-v-74f55575] {\n      position: relative;\n      z-index: 10000000000000000000000;\n      top: 0;\n      overflow-y: scroll;\n      width: 100vw;\n      height: 100vh;\n}\n", ""]);
+	exports.push([module.id, "\n.VueCarousel[data-v-74f55575] {\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-wrapper[data-v-74f55575] {\n  width: 100%;\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-inner[data-v-74f55575] {\n  display: flex;\n  flex-direction: row;\n  backface-visibility: hidden;\n}\n.VueCarousel-close[data-v-74f55575] {\n  display: none;\n  position: fixed;\n  top: 0;\n  right: 0;\n  z-index: 10000000000000000000000;\n}\nbody.modal-active[data-v-74f55575] {\n  overflow: hidden;\n}\nbody.modal-active .VueCarousel-expand[data-v-74f55575] {\n    display: none;\n}\nbody.modal-active .VueCarousel.is-not-active[data-v-74f55575] {\n    display: none;\n}\nbody.modal-active .VueCarousel.is-active[data-v-74f55575] {\n    height: 100vh;\n    width: 100vw;\n    z-index: 10000000000000000000000;\n    position: fixed;\n    top: 0;\n    left: 0;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-wrapper[data-v-74f55575] {\n      height: 100vh;\n      width: 100vw;\n      z-index: 10000000000000000000000;\n      position: fixed;\n      top: 0;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-close[data-v-74f55575] {\n      display: block;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-pagination[data-v-74f55575] {\n      position: absolute;\n      z-index: 10000000000000000000000;\n}\nbody.modal-active .VueCarousel.is-active .VueCarousel-slide[data-v-74f55575] {\n      position: relative;\n      z-index: 10000000000000000000000;\n      top: 0;\n      overflow-y: scroll;\n      width: 100vw;\n      height: 100vh;\n}\n", ""]);
 
 	// exports
 
@@ -714,8 +714,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 
 	      var offset = this.scrollPerPage ? page * width * this.currentPerPage : page * width;
-
-	      console.log(offset);
 
 	      return (offset + dragged) * -1;
 	    },
