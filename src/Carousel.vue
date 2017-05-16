@@ -573,6 +573,7 @@
       z-index: $z-index + 1;
       position: fixed;
       top: 0;
+      left: 0;
     
       .VueCarousel-wrapper {
         height: 100vh;
