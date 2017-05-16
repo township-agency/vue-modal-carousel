@@ -6,8 +6,13 @@
 </template>
 
 <script>
+  import SlideCaption from "./SlideCaption.vue"
+
   export default {
     name: "slide",
+    components: {
+      SlideCaption
+    },
     data() {
       return {
         width: null,
@@ -33,12 +38,12 @@
     position: relative;
     transition: .3s ease all;
   }
-  
+
   .VueCarousel-expand {
     position: absolute;
     right: 1rem;
     bottom: 1rem;
     z-index: $z-index + 2;
   }
-  
+
 </style>

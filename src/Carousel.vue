@@ -1,6 +1,6 @@
 <template>
-  <div  class="VueCarousel" 
-        v-bind:id="id" 
+  <div  class="VueCarousel"
+        v-bind:id="id"
         v-bind:class="{
           'is-active': modalEnabled,
           'is-not-active': !modalEnabled
@@ -256,7 +256,7 @@
         const page = this.currentPage
         const dragged = this.dragOffset
         let width = this.slideWidth
-        
+
         if(this.modalEnabled) {
           width = this.browserWidth
         }
@@ -264,7 +264,7 @@
         // The offset distance depends on whether the scrollPerPage option is active.
         // If this option is active, the offset will be determined per page rather than per item.
         const offset = (this.scrollPerPage) ? (page * width * this.currentPerPage) : (page * width)
-        
+
         return (offset + dragged) * -1
       },
       isHidden() {
@@ -277,7 +277,7 @@
       pageCount() {
         const slideCount = this.slideCount
         const perPage = this.currentPerPage
-        
+
         if (this.modalEnabled) {
           return slideCount
         }
@@ -303,7 +303,7 @@
       slideWidth() {
         const width = this.carouselWidth
         const perPage = this.currentPerPage
-        
+
         if(this.modalEnabled) {
           return this.browserWidth
         }
@@ -547,7 +547,7 @@
     flex-direction: row;
     backface-visibility: hidden;
   }
-  
+
   .VueCarousel-close {
     display: none;
     position: fixed;
@@ -555,18 +555,18 @@
     right: 0;
     z-index: $z-index + 3;
   }
-    
+
   body.modal-active {
     overflow: hidden;
-    
+
     .VueCarousel-expand {
       display: none;
     }
-    
+
     .VueCarousel.is-not-active {
       display: none;
     }
-    
+
     .VueCarousel.is-active {
       height: 100vh;
       width: 100vw;
@@ -574,7 +574,7 @@
       position: fixed;
       top: 0;
       left: 0;
-    
+
       .VueCarousel-wrapper {
         height: 100vh;
         width: 100vw;
@@ -586,7 +586,7 @@
       .VueCarousel-close {
         display: block;
       }
-      
+
       .VueCarousel-pagination {
         position: absolute;
         z-index: $z-index + 3;
@@ -600,10 +600,10 @@
         width: 100vw;
         height: 100vh;
       }
-      
+
     }
-    
+
   }
-  
+
 
 </style>
