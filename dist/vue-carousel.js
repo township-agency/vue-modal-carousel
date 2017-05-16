@@ -1839,11 +1839,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "enable-background": "new 0 0 10.0005 1.098",
 	      "xml:space": "preserve"
 	    }
-	  }, [_c('rect', {
+	  }, [_c('defs', {
+	    attrs: {
+	      "xmlns": "http://www.w3.org/2000/svg"
+	    }
+	  }, [_c('filter', {
+	    attrs: {
+	      "id": "dropshadow",
+	      "height": "130%"
+	    }
+	  }, [_c('feGaussianBlur', {
+	    attrs: {
+	      "in": "SourceAlpha",
+	      "stdDeviation": "1"
+	    }
+	  }), _vm._v(" "), _c('feOffset', {
+	    attrs: {
+	      "dx": "1",
+	      "dy": "0",
+	      "result": "offsetblur"
+	    }
+	  }), _vm._v(" "), _c('feComponentTransfer', [_c('feFuncA', {
+	    attrs: {
+	      "type": "linear",
+	      "slope": "0.125"
+	    }
+	  })], 1), _vm._v(" "), _c('feMerge', [_c('feMergeNode'), _vm._v(" "), _c('feMergeNode', {
+	    attrs: {
+	      "in": "SourceGraphic"
+	    }
+	  })], 1)], 1)]), _vm._v(" "), _c('rect', {
 	    attrs: {
 	      "fill": "#FFF",
 	      "width": "10.0005",
-	      "height": "1.098"
+	      "height": "1.098",
+	      "filter": "url(#dropshadow)"
 	    }
 	  })])]) : _c('div', {
 	    staticClass: "VueCarousel-icon closed"
@@ -1858,10 +1888,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "enable-background": "new 0 0 10.0005 10",
 	      "xml:space": "preserve"
 	    }
-	  }, [_c('polygon', {
+	  }, [_c('defs', {
+	    attrs: {
+	      "xmlns": "http://www.w3.org/2000/svg"
+	    }
+	  }, [_c('filter', {
+	    attrs: {
+	      "id": "dropshadow",
+	      "height": "130%"
+	    }
+	  }, [_c('feGaussianBlur', {
+	    attrs: {
+	      "in": "SourceAlpha",
+	      "stdDeviation": "1"
+	    }
+	  }), _vm._v(" "), _c('feOffset', {
+	    attrs: {
+	      "dx": "1",
+	      "dy": "0",
+	      "result": "offsetblur"
+	    }
+	  }), _vm._v(" "), _c('feComponentTransfer', [_c('feFuncA', {
+	    attrs: {
+	      "type": "linear",
+	      "slope": "0.125"
+	    }
+	  })], 1), _vm._v(" "), _c('feMerge', [_c('feMergeNode'), _vm._v(" "), _c('feMergeNode', {
+	    attrs: {
+	      "in": "SourceGraphic"
+	    }
+	  })], 1)], 1)]), _vm._v(" "), _c('polygon', {
 	    attrs: {
 	      "fill": "#FFF",
-	      "points": "10.0005,4.451 5.5485,4.451 5.5485,0 4.451,0 4.451,4.451 0,4.451 0,5.549 4.451,5.549 4.451,10 5.5485,10 5.5485,5.549 10.0005,5.549 "
+	      "points": "10.0005,4.451 5.5485,4.451 5.5485,0 4.451,0 4.451,4.451 0,4.451 0,5.549 4.451,5.549 4.451,10 5.5485,10 5.5485,5.549 10.0005,5.549 ",
+	      "filter": "url(#dropshadow)"
 	    }
 	  })])])])
 	},staticRenderFns: []}
