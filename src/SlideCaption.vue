@@ -1,9 +1,10 @@
 <template>
   <aside class="VueCarousel-caption" @click="handleClick">
     <div class="VueCarousel-truncate" v-bind:class="{ 'open': isOpen }">
-      <slot></slot>
+      <div class="VueCarousel-caption__short">{{shortText}}</div>
+      <div class="VueCarousel-caption__full">{{text}}</div>
     </div>
-    <div v-if="isOpen" class="VueCarousel-icon open">
+    <div v-if="shouldShorten && isOpen" class="VueCarousel-icon open">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 10.0005 1.098" enable-background="new 0 0 10.0005 1.098" xml:space="preserve">
         <defs xmlns="http://www.w3.org/2000/svg">
           <filter id="dropshadow" height="130%">
@@ -21,7 +22,7 @@
         <rect fill="#FFF" width="10.0005" height="1.098" filter="url(#dropshadow)"/>
       </svg>
     </div>
-    <div v-else class="VueCarousel-icon closed">
+    <div v-if="shouldShorten && !isOpen" class="VueCarousel-icon closed">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 10.0005 10" enable-background="new 0 0 10.0005 10" xml:space="preserve">
         <defs xmlns="http://www.w3.org/2000/svg">
           <filter id="dropshadow" height="130%">
@@ -45,9 +46,18 @@
 <script>
   export default {
     name: "slide-caption",
+    props: ['text'],
     data() {
       return {
         isOpen: false,
+      }
+    },
+    computed: {
+      shouldShorten() {
+        return this.text.length > 100;
+      },
+      shortText() {
+        return this.shouldShorten ? `${this.text.substring(0,100)}...` : this.text;
       }
     },
     methods: {
