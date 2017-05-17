@@ -1798,12 +1798,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = {
 	  name: "slide-caption",
+	  props: ['text'],
 	  data: function data() {
 	    return {
 	      isOpen: false
 	    };
 	  },
 
+	  computed: {
+	    shouldShorten: function shouldShorten() {
+	      return this.text.length > 100;
+	    },
+	    shortText: function shortText() {
+	      return this.shouldShorten ? this.text.substring(0, 100) + "..." : this.text;
+	    }
+	  },
 	  methods: {
 	    handleClick: function handleClick() {
 	      this.isOpen = !this.isOpen;
@@ -1826,7 +1835,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: {
 	      'open': _vm.isOpen
 	    }
-	  }, [_vm._t("default")], 2), _vm._v(" "), (_vm.isOpen) ? _c('div', {
+	  }, [_c('div', {
+	    staticClass: "VueCarousel-caption__short"
+	  }, [_vm._v(_vm._s(_vm.shortText))]), _vm._v(" "), _c('div', {
+	    staticClass: "VueCarousel-caption__full"
+	  }, [_vm._v(_vm._s(_vm.text))])]), _vm._v(" "), (_vm.shouldShorten && _vm.isOpen) ? _c('div', {
 	    staticClass: "VueCarousel-icon open"
 	  }, [_c('svg', {
 	    attrs: {
@@ -1875,7 +1888,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "height": "1.098",
 	      "filter": "url(#dropshadow)"
 	    }
-	  })])]) : _c('div', {
+	  })])]) : _vm._e(), _vm._v(" "), (_vm.shouldShorten && !_vm.isOpen) ? _c('div', {
 	    staticClass: "VueCarousel-icon closed"
 	  }, [_c('svg', {
 	    attrs: {
@@ -1923,7 +1936,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      "points": "10.0005,4.451 5.5485,4.451 5.5485,0 4.451,0 4.451,4.451 0,4.451 0,5.549 4.451,5.549 4.451,10 5.5485,10 5.5485,5.549 10.0005,5.549 ",
 	      "filter": "url(#dropshadow)"
 	    }
-	  })])])])
+	  })])]) : _vm._e()])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
