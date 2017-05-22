@@ -1,5 +1,5 @@
 <template>
-  <div class="VueCarousel-slide">
+  <div v-bind:class="slideClass">
     <slot></slot>
     <button class="VueCarousel-expand slide-nomodal" @click="handleClick">EXPAND</button>
   </div>
@@ -10,6 +10,7 @@
 
   export default {
     name: "slide",
+    props: ['contain'],
     components: {
       SlideCaption
     },
@@ -17,6 +18,14 @@
       return {
         width: null,
         parentContainer: this.$parent
+      }
+    },
+    computed: {
+      slideClass() {
+        return {
+          'VueCarousel-slide': true,
+          'VueCarousel-contain': this.contain,
+        }
       }
     },
     methods: {
@@ -30,11 +39,14 @@
 <style lang="scss" scoped>
   @import './scss/var';
 
-  .VueCarousel-slide {
+  .VueCarousel-contain {
     flex-basis: inherit;
     flex-grow: 0;
     flex-shrink: 0;
     user-select: none;
+  }
+
+  .VueCarousel-slide {
     position: relative;
     transition: .3s ease all;
   }

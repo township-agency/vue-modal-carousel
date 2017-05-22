@@ -56,6 +56,7 @@
       return {
         browserWidth: null,
         carouselWidth: null,
+        nextOffset: null,
         currentPage: 0,
         dragOffset: 0,
         dragStartX: 0,
@@ -198,7 +199,15 @@
       forceModal: {
         type: Boolean,
         default: false,
-      }
+      },
+      /**
+       * Show Inline
+       * Don't contain images to per-page width
+       */
+      showInline: {
+        type: Boolean,
+        default: false,
+      },
     },
     computed: {
       /**
@@ -259,6 +268,8 @@
 
         if(this.modalEnabled) {
           width = this.browserWidth
+        } else if (this.showInline) {
+          return page * this.nextOffset * -1
         }
 
         // The offset distance depends on whether the scrollPerPage option is active.
@@ -375,6 +386,14 @@
         return this.carouselWidth
       },
       /**
+       * Get the amount the carousel should offset on the next pagination click
+       * @return {Number} Amount carousel should move
+       */
+      getNextOffset() {
+        this.nextOffset = this.$children[this.currentPage] ? this.$children[this.currentPage].$el.clientWidth : 0;
+        return this.nextOffset;
+      },
+      /**
        * Filter slot contents to slide instances and return length
        * @return {Number} The number of slides
        */
@@ -452,6 +471,7 @@
         this.getBrowserWidth()
         this.getCarouselWidth()
         this.setCurrentPageInBounds()
+        this.getNextOffset()
       },
       /**
        * When the current page exceeds the carousel bounds, reset it to the maximum allowed

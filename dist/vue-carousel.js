@@ -1,7 +1,7 @@
 /*!
- * vue-carousel v0.0.1
- * (c) 2017 todd.beauchamp@ssense.com
- * https://github.com/ssense/vue-carousel#readme
+ * vue-carousel v0.0.2
+ * (c) 2017 thomas@motel.is
+ * https://github.com/motelis/vue-carousel#readme
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -584,6 +584,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return {
 	      browserWidth: null,
 	      carouselWidth: null,
+	      nextOffset: null,
 	      currentPage: 0,
 	      dragOffset: 0,
 	      dragStartX: 0,
@@ -678,6 +679,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    forceModal: {
 	      type: Boolean,
 	      default: false
+	    },
+
+	    showInline: {
+	      type: Boolean,
+	      default: false
 	    }
 	  },
 	  computed: {
@@ -717,6 +723,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      if (this.modalEnabled) {
 	        width = this.browserWidth;
+	      } else if (this.showInline) {
+	        return page * this.nextOffset * -1;
 	      }
 
 	      var offset = this.scrollPerPage ? page * width * this.currentPerPage : page * width;
@@ -793,6 +801,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.carouselWidth = this.$el && this.$el.clientWidth || 0;
 	      return this.carouselWidth;
 	    },
+	    getNextOffset: function getNextOffset() {
+	      this.nextOffset = this.$children[this.currentPage] ? this.$children[this.currentPage].$el.clientWidth : 0;
+	      return this.nextOffset;
+	    },
 	    getSlideCount: function getSlideCount() {
 	      this.slideCount = this.$slots && this.$slots.default && this.$slots.default.filter(function (slot) {
 	        return slot.tag && slot.tag.indexOf("slide") > -1;
@@ -842,6 +854,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.getBrowserWidth();
 	      this.getCarouselWidth();
 	      this.setCurrentPageInBounds();
+	      this.getNextOffset();
 	    },
 	    setCurrentPageInBounds: function setCurrentPageInBounds() {
 	      if (!this.canAdvanceForward) {
@@ -1669,7 +1682,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.VueCarousel-slide[data-v-146fde68] {\n  flex-basis: inherit;\n  flex-grow: 0;\n  flex-shrink: 0;\n  user-select: none;\n  position: relative;\n  transition: .3s ease all;\n}\n.VueCarousel-expand[data-v-146fde68] {\n  position: absolute;\n  right: 1rem;\n  bottom: 1rem;\n  z-index: 10000000000000000000000;\n}\n", ""]);
+	exports.push([module.id, "\n.VueCarousel-contain[data-v-146fde68] {\n  flex-basis: inherit;\n  flex-grow: 0;\n  flex-shrink: 0;\n  user-select: none;\n}\n.VueCarousel-slide[data-v-146fde68] {\n  position: relative;\n  transition: .3s ease all;\n}\n.VueCarousel-expand[data-v-146fde68] {\n  position: absolute;\n  right: 1rem;\n  bottom: 1rem;\n  z-index: 10000000000000000000000;\n}\n", ""]);
 
 	// exports
 
@@ -1692,6 +1705,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.default = {
 	  name: "slide",
+	  props: ['contain'],
 	  components: {
 	    SlideCaption: _SlideCaption2.default
 	  },
@@ -1702,6 +1716,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	  },
 
+	  computed: {
+	    slideClass: function slideClass() {
+	      return {
+	        'VueCarousel-slide': true,
+	        'VueCarousel-contain': this.contain
+	      };
+	    }
+	  },
 	  methods: {
 	    handleClick: function handleClick() {
 	      return this.parentContainer.modalToggle(this);
@@ -1952,7 +1974,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
-	    staticClass: "VueCarousel-slide"
+	    class: _vm.slideClass
 	  }, [_vm._t("default"), _vm._v(" "), _c('button', {
 	    staticClass: "VueCarousel-expand slide-nomodal",
 	    on: {
