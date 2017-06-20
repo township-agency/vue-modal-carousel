@@ -1,5 +1,5 @@
 /*!
- * vue-carousel v0.0.2
+ * vue-carousel v0.3.0
  * (c) 2017 thomas@motel.is
  * https://github.com/motelis/vue-carousel#readme
  */
@@ -111,7 +111,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "/Users/alex/Sites/vue-modal-carousel/src/Carousel.vue"
+	Component.options.__file = "/Users/thomasdrach/Documents/Code/vue-modal-carousel/src/Carousel.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] Carousel.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -862,11 +862,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.currentPage = setPage >= 0 ? setPage : 0;
 	      }
 	    },
-	    openModal: function openModal() {
+	    openModal: function openModal(page) {
 	      var bodyClass = document.body.classList;
 	      if (!bodyClass.contains('modal-active')) {
 	        this.modalEnabled = true;
-	        return bodyClass.add("modal-active");
+	        bodyClass.add("modal-active");
+	        if (page) {
+	          return this.goToPage(page);
+	        }
 	      }
 	    },
 	    closeModal: function closeModal() {
@@ -879,12 +882,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return bodyClass.remove("modal-active");
 	      }
 	    },
-	    modalToggle: function modalToggle() {
+	    modalToggle: function modalToggle(page) {
 	      var bodyClass = document.body.classList;
 	      if (bodyClass.contains("modal-active")) {
 	        return this.closeModal();
 	      }
-	      return this.openModal();
+	      return this.openModal(page);
 	    },
 	    addHotKeys: function addHotKeys() {
 	      var vm = this;
@@ -1038,7 +1041,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "/Users/alex/Sites/vue-modal-carousel/src/Navigation.vue"
+	Component.options.__file = "/Users/thomasdrach/Documents/Code/vue-modal-carousel/src/Navigation.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] Navigation.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1221,7 +1224,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "/Users/alex/Sites/vue-modal-carousel/src/Pagination.vue"
+	Component.options.__file = "/Users/thomasdrach/Documents/Code/vue-modal-carousel/src/Pagination.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] Pagination.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1627,7 +1630,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "/Users/alex/Sites/vue-modal-carousel/src/Slide.vue"
+	Component.options.__file = "/Users/thomasdrach/Documents/Code/vue-modal-carousel/src/Slide.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] Slide.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1705,7 +1708,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.default = {
 	  name: "slide",
-	  props: ['contain'],
+	  props: ['contain', 'index'],
 	  components: {
 	    SlideCaption: _SlideCaption2.default
 	  },
@@ -1726,7 +1729,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  methods: {
 	    handleClick: function handleClick() {
-	      return this.parentContainer.modalToggle(this);
+	      return this.parentContainer.modalToggle(this.index);
 	    }
 	  }
 	};
@@ -1749,7 +1752,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "/Users/alex/Sites/vue-modal-carousel/src/SlideCaption.vue"
+	Component.options.__file = "/Users/thomasdrach/Documents/Code/vue-modal-carousel/src/SlideCaption.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] SlideCaption.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1978,7 +1981,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, [_vm._t("default"), _vm._v(" "), _c('button', {
 	    staticClass: "VueCarousel-expand slide-nomodal",
 	    on: {
-	      "click": _vm.handleClick
+	      "click": function($event) {
+	        _vm.handleClick()
+	      }
 	    }
 	  }, [_vm._v("EXPAND")])], 2)
 	},staticRenderFns: []}
@@ -2008,7 +2013,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "/Users/alex/Sites/vue-modal-carousel/src/Modal.vue"
+	Component.options.__file = "/Users/thomasdrach/Documents/Code/vue-modal-carousel/src/Modal.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] Modal.vue: functional components are not supported with templates, they should use render functions.")}
 

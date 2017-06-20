@@ -482,11 +482,14 @@
           this.currentPage = (setPage >= 0) ? setPage : 0
         }
       },
-      openModal() {
+      openModal(page) {
         const bodyClass = document.body.classList
         if (!bodyClass.contains('modal-active')) {
           this.modalEnabled = true
-          return bodyClass.add("modal-active")
+          bodyClass.add("modal-active")
+          if (page) {
+            return this.goToPage(page)
+          }
         }
       },
       closeModal() {
@@ -499,12 +502,12 @@
           return bodyClass.remove("modal-active")
         }
       },
-      modalToggle() {
+      modalToggle(page) {
         const bodyClass = document.body.classList
         if (bodyClass.contains("modal-active")) {
           return this.closeModal()
         }
-        return this.openModal()
+        return this.openModal(page)
       },
       addHotKeys() {
         const vm = this

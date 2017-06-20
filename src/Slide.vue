@@ -10,7 +10,10 @@
 
   export default {
     name: "slide",
-    props: ['contain'],
+    props: [
+      'contain',
+      'index'
+    ],
     components: {
       SlideCaption
     },
@@ -30,7 +33,7 @@
     },
     methods: {
       handleClick () {
-        return this.parentContainer.modalToggle(this)
+        return this.parentContainer.modalToggle(this.index)
       }
     }
   }
