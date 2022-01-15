@@ -64,7 +64,7 @@
     "mocha": "^3.2.0",
     "node-sass": "^4.5.2",
     "sass-loader": "^6.0.3",
-    "shelljs": "^0.7.5",
+    "shelljs": "^0.8.5",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "vue": "^2.1.8",
